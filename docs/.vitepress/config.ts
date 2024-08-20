@@ -121,6 +121,7 @@ export default defineConfig({
           menuItem('WASM', 'wasm.md'),
         ]),
         menuGroup('Content Scripts', '/guide/content-scripts/', [
+          menuItem('CSS', 'css.md'),
           menuItem('UI', 'ui.md'),
           menuItem('Content Script Context', 'context.md'),
         ]),

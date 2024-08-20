@@ -1,11 +1,11 @@
-# CSS
+# Unlisted CSS
 
 WXT can build CSS entrypoints individually. CSS entrypoints are always unlisted.
 
-See [Content Script CSS](/guide/directory-structure/entrypoints/content-scripts#css) documentation for the recommended approach to include CSS with a content script.
+See [Content Script CSS](/guide/content-scripts/css) documentation for the recommended approach to include CSS with a content script.
 
 :::info
-If the recommended approach doesn't work for your use case, you can use any of the filename patterns below to build the styles separate from the JS and use the [`transformManifest` hook](/api/reference/wxt/interfaces/InlineConfig#transformmanifest) to manually add your CSS file to the manifest.
+If the recommended approach doesn't work for your use case, you can use any of the filename patterns below to build the styles separate from the JS and use the [`build:manifestGenerated` hook](/api/reference/wxt/interfaces/WxtHooks#build-manifestgenerated) to manually add your CSS file to the manifest.
 :::
 
 ## Filenames

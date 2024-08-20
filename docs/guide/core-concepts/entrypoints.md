@@ -40,7 +40,7 @@ Regardless of whether a entrypoint is listed or unlisted, it will still be bundl
 
 ## Adding Entrypoints
 
-Once again, refer to the [Entrypoint Types documentation](/guide/entrypoints/background) for the allowed file patterns for each entrypoint type.
+Once again, refer to the [Entrypoint Types documentation](/guide/entrypoint-types/background) for the allowed file patterns for each entrypoint type.
 
 In general, each type of entrypoint can be defined as a single file or directory with an `index` file inside it.
 
@@ -73,6 +73,6 @@ export default defineContentScript({
 });
 ```
 
-> Refer to the [Entrypoint Types documentation](/guide/entrypoints/background) for a list of options configurable inside each entrypoint, and how to define them.
+> Refer to the [Entrypoint Types documentation](/guide/entrypoint-types/background) for a list of options configurable inside each entrypoint, and how to define them.
 
 When building your extension, WXT will look at the options defined in your entrypoints, and generate the manifest accordingly.

@@ -169,4 +169,4 @@ export default defineConfig({
 
 > Most hooks provide the `wxt` object as the first argument. If contains the resolved config and other info about the current build.
 
-Putting one-off hooks like this in your config file is simple, but if you find yourself writing lots of hooks, you should extract them into [WXT Modules](/guide/wxt-modules/overview) instead.
+Putting one-off hooks like this in your config file is simple, but if you find yourself writing lots of hooks, you should extract them into [WXT Modules](/guide/wxt-modules/writing-modules) instead.

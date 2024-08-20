@@ -34,13 +34,13 @@ Here's a brief summary of each of these files and directories:
 - `hooks/`: Auto-imported by default, contains hooks for React and Solid
 - `public/`: Contains any files you want to copy into the output folder as-is, without being processed by WXT
 - `hooks/`: Auto-imported by default, contains generic utilties used throughout your project
-- `.env`: Contains [Environment Variables](/guide/config/environment-variables)
+- `.env`: Contains [Environment Variables](/guide/config/runtime#environment-variables)
 - `.env.publish`: Contains Environment Variables for [publishing](/guide/production/publishing)
-- `app.config.ts`: Contains [Runtime Config](/guide/config/runtine)
+- `app.config.ts`: Contains [Runtime Config](/guide/config/runtime)
 - `package.json`: The standard file used by your package manager
 - `tsconfig.json`: Config telling TypeScript how to behave
 - `web-ext.config.ts`: Configure [Browser Startup](/guide/config/browser-startup)
-- `wxt.config.ts`: The [main config file](/guide/config/wxt-config) for WXT projects
+- `wxt.config.ts`: The [main config file](/guide/config/wxt) for WXT projects
 
 ## Adding a `src/` Directory
 
