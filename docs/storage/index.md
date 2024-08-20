@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Storage API
+# `wxt/storage` API
 
 WXT provides a simplified API to replace the `browser.storage.*` APIs. Use the `storage` auto-import from `wxt/storage` or import it manually to get started:
 
@@ -22,7 +22,6 @@ export default defineConfig({
 });
 ```
 
-More info on permissions [here](/guide/key-concepts/manifest#permissions).
 :::
 
 [[toc]]
