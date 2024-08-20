@@ -8,6 +8,8 @@ import {
   prepareTypedocSidebar,
 } from './utils/menus';
 import { meta, script } from './utils/head';
+import { version as wxtVersion } from '../../packages/wxt/package.json';
+import { version as i18nVersion } from '../../packages/i18n/package.json';
 
 const title = 'Next-gen Web Extension Framework';
 const titleSuffix = ' – WXT';
@@ -64,92 +66,104 @@ export default defineConfig({
     ],
 
     nav: [
-      navItem('Get Started', '/get-started/introduction'),
-      navItem('Guide', '/guide/key-concepts/manifest'),
-      navItem('API', '/api/reference/wxt'),
+      navItem('Guide', '/guide/get-started/installation'),
       navItem('Examples', '/examples'),
+      navItem('API', '/api/reference/wxt'),
+      navItem('---', [
+        navItem('wxt', [
+          navItem(`v${wxtVersion}`, '/'),
+          navItem(
+            `Changelog`,
+            'https://github.com/wxt-dev/wxt/blob/main/packages/wxt/CHANGELOG.md',
+          ),
+        ]),
+        navItem('@wxt-dev/i18n', [
+          navItem(`v${i18nVersion}`, '/i18n'),
+          navItem(
+            `Changelog`,
+            'https://github.com/wxt-dev/wxt/blob/main/packages/i18n/CHANGELOG.md',
+          ),
+        ]),
+      ]),
     ],
 
     sidebar: {
-      '/get-started/': menuRoot([
-        menuGroup('Get Started', '/get-started/', [
-          menuItem('Introduction', 'introduction'),
-          menuItem('Installation', 'installation'),
-          menuItem('Configuration', 'configuration'),
-          menuItem('Entrypoints', 'entrypoints'),
-          menuItem('Assets', 'assets'),
-          menuItem('Publishing', 'publishing'),
-          menuItem('Migrate to WXT', 'migrate-to-wxt'),
-          menuItem('Compare', 'compare'),
-        ]),
-      ]),
       '/guide/': menuRoot([
-        menuGroup('Key Concepts', '/guide/key-concepts/', [
-          menuItem('Manifest', 'manifest'),
-          menuItem('Auto-imports', 'auto-imports'),
-          menuItem('Web Extension Polyfill', 'web-extension-polyfill'),
-          menuItem('Frontend Frameworks', 'frontend-frameworks'),
-          menuItem('Content Script UI', 'content-script-ui'),
+        menuGroup('Get Started', '/guide/get-started/', [
+          menuItem('Introduction', 'introduction.md'),
+          menuItem('Installation', 'installation.md'),
+          menuItem('Migrate to WXT', 'migrate.md'),
         ]),
-        menuGroup('Directory Structure', '/guide/directory-structure/', [
-          // Folders
-          menuItem('.output/', 'output'),
-          menuItem('.wxt/', 'wxt'),
-          menuItem('assets/', 'assets'),
-          menuItem('components/', 'components'),
-          menuItem('composables/', 'composables'),
-          menuGroup('entrypoints/', '/guide/directory-structure/entrypoints/', [
-            menuItem('background', 'background.md'),
-            menuItem('bookmarks', 'bookmarks.md'),
-            menuItem('*.content.ts', 'content-scripts.md'),
-            menuItem('*.css', 'css.md'),
-            menuItem('devtools', 'devtools.md'),
-            menuItem('history', 'history.md'),
-            menuItem('newtab', 'newtab.md'),
-            menuItem('options', 'options.md'),
-            menuItem('popup', 'popup.md'),
-            menuItem('sandbox', 'sandbox.md'),
-            menuItem('sidepanel', 'sidepanel.md'),
-            menuItem('*.html', 'unlisted-pages.md'),
-            menuItem('*.ts', 'unlisted-scripts.md'),
-          ]),
-          menuItem('hooks/', 'hooks'),
-          menuItem('public/', 'public/', [
-            menuItem('_locales/', 'public/locales'),
-          ]),
-          menuItem('utils/', 'utils'),
-
-          // Files
-          menuItem('.env', 'env'),
-          menuItem('app.config.ts', 'app-config'),
-          menuItem('package.json', 'package'),
-          menuItem('tsconfig.json', 'tsconfig'),
-          menuItem('web-ext.config.ts', 'web-ext-config'),
-          menuItem('wxt.config.ts', 'wxt-config'),
+        menuGroup('Core Concepts', '/guide/core-concepts/', [
+          menuItem('Project Structure', 'project-structure.md'),
+          menuItem('Entrypoints', 'entrypoints.md'),
+          menuItem('Browser Support', 'browser-support.md'),
+          menuItem('Vite', 'vite.md'),
+        ]),
+        menuGroup('Configuration', '/guide/config/', [
+          menuItem('Main Config File', 'main-file.md'),
+          menuItem('Manifest', 'manifest.md'),
+          menuItem('Frontend Frameworks', 'frontend-frameworks.md'),
+          menuItem('Browser Startup', 'browser-startup.md'),
+          menuItem('Environment Variables', 'environment-variables.md'),
+          menuItem('Runtime Config', 'runtime.md'),
+          menuItem('TypeScript', 'typescript.md'),
         ]),
         menuGroup('Extension APIs', '/guide/extension-apis/', [
-          menuItem('Storage', 'storage'),
-          menuItem('Messaging', 'messaging'),
-          menuItem('I18n', 'i18n'),
-          menuItem('Scripting', 'scripting'),
-          menuItem('Others', 'others'),
+          menuItem('Basic Usage', 'basic-usage.md'),
+          menuItem('Action', 'action.md'),
+          menuItem('I18n', 'i18n.md'),
+          menuItem('Messaging', 'messaging.md'),
+          menuItem('Scripting', 'scripting.md'),
+          menuItem('Storage', 'storage.md'),
         ]),
-        menuGroup('Go Further', '/guide/go-further/', [
-          menuItem('Testing', 'testing'),
-          menuItem('ES Modules', 'es-modules'),
-          menuItem('Debugging', 'debugging'),
-          menuItem('Handling Updates', 'handling-updates'),
-          menuItem('Vite', 'vite'),
-          menuItem('Custom Events', 'custom-events'),
-          menuItem('Reusable Modules', 'reusable-modules'),
-          menuItem('Remote Code', 'remote-code'),
-          menuItem('Entrypoint Loaders', 'entrypoint-loaders'),
-          menuItem('How WXT Works', 'how-wxt-works'),
+        menuGroup('Assets', '/guide/assets/', [
+          menuItem('Images', 'images.md'),
+          menuItem('CSS', 'css.md'),
+          menuItem('WASM', 'wasm.md'),
         ]),
-        menuGroup('Upgrade Guide', '/guide/upgrade-guide/', [
-          menuItem('wxt', 'wxt'),
+        menuGroup('Content Scripts', '/guide/content-scripts/', [
+          menuItem('UI', 'ui.md'),
+          menuItem('Content Script Context', 'context.md'),
         ]),
-        menuGroup('@wxt-dev/i18n', '/guide/i18n/', [
+        menuGroup('WXT Modules', '/guide/wxt-modules/', [
+          menuItem('Using Modules', 'using-modules.md'),
+          menuItem('Writing Modules', 'writing-modules.md'),
+          menuItem('Recipes', 'recipes.md'),
+        ]),
+        menuGroup('Maintain Your Project', '/guide/maintainence/', [
+          menuItem('Upgrading WXT', 'upgrading.md'),
+          menuItem('Unit Testing', 'unit-testing.md'),
+          menuItem('E2E Testing', 'e2e-testing.md'),
+          menuItem('Debugging', 'debugging.md'),
+        ]),
+        menuGroup('Going to Production', '/guide/production/', [
+          menuItem('Publishing', 'publishing.md'),
+          menuItem('Bundle Remote Code', 'remote-code.md'),
+          menuItem('Testing Updates', 'testing-updates.md'),
+        ]),
+        menuGroup('Entrypoint Types', '/guide/entrypoint-types/', [
+          menuItem('Background', 'background.md'),
+          menuItem('Bookmarks', 'bookmarks.md'),
+          menuItem('Content Script', 'content-scripts.md'),
+          menuItem('CSS', 'css.md'),
+          menuItem('Devtools', 'devtools.md'),
+          menuItem('History', 'history.md'),
+          menuItem('Newtab', 'newtab.md'),
+          menuItem('Options', 'options.md'),
+          menuItem('Popup', 'popup.md'),
+          menuItem('Sandbox', 'sandbox.md'),
+          menuItem('Sidepanel', 'sidepanel.md'),
+          menuItem('Unlisted HTML', 'unlisted-pages.md'),
+          menuItem('Unlisted Script', 'unlisted-scripts.md'),
+        ]),
+        menuGroup('Resources', '/guide/resources/', [
+          menuItem('Compare', 'compare.md'),
+          menuItem('How WXT Works', 'how-wxt-works.md'),
+        ]),
+      ]),
+      '/i18n/': menuRoot([
+        menuGroup('@wxt-dev/i18n', '/i18n/', [
           menuItem('Introduction', 'introduction.md'),
           menuItem('Installation', 'installation.md'),
           menuItem('Messages File Format', 'messages-file-format.md'),

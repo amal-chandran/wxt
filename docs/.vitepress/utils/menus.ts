@@ -2,9 +2,20 @@ import { DefaultTheme } from 'vitepress';
 
 type SidebarItem = DefaultTheme.SidebarItem;
 type NavItem = DefaultTheme.NavItem;
+type NavItemWithLink = DefaultTheme.NavItemWithLink;
+type NavItemWithChildren = DefaultTheme.NavItemWithChildren;
+type NavItemChildren = DefaultTheme.NavItemChildren;
 
-export function navItem(text: string, link: string): NavItem {
-  return { text, link };
+export function navItem(text: string): NavItemChildren;
+export function navItem(text: string, link: string): NavItemChildren;
+export function navItem(text: string, items: any[]): NavItemWithChildren;
+export function navItem(text: string, arg2?: unknown): any {
+  if (typeof arg2 === 'string') {
+    return { text, link: arg2 };
+  } else if (Array.isArray(arg2)) {
+    return { text, items: arg2 };
+  }
+  return { text };
 }
 
 export function menuRoot(items: SidebarItem[]) {
