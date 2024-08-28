@@ -26,7 +26,7 @@ To add a plugin, install it and add it to the config:
 // wxt.config.ts
 export default defineConfig({
   vite: () => ({
-    plugisn: [
+    plugins: [
       // ...
     ],
   }),
